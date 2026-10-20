@@ -46,7 +46,7 @@ export default function Post() {
 
             setPosts((prevPosts) => [newPost, ...prevPosts]);
 
-            setMessage('');
+            setMessage(''); 
         } catch (err) {
             const errMsg = err.response?.data?.message || 'Failed to share post. Please try again.';
             setError(errMsg);
