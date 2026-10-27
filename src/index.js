@@ -1,22 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import Button from './component/Button';
-import Card from "./component/Card";
-import Counter from "./component/Counter";
-import List from "./component/List";
+// import Button from './component/ui/Button';
+// import Card from "./component/ui/Card";
+// import Counter from "./component/ui/Counter";
+// import List from "./component/ui/List";
+import Post from "./component/ui/Post";
+// import PostCard from "./component/ui/PostCard";
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Button />
+    {/* <Button />
     <Card 
         name = "Mark Daniel"
         description = "This is me."/>
     <Counter />
-    <List />
+    <List /> */}
+    <Post />
+    {/* <PostCard /> */}
   </React.StrictMode>
 );
 

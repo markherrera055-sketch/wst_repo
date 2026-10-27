@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {getPost, storePost} from '../../api/post';
-import './styles/post.css';
+import '../style/post.css';
 import PostCard from './PostCard';
 
 export default function Post() {
     const [posts, setPosts] = useState([]);
-    const [message, setMessage] = useState('');
-    const [error, setError] = useState('');
+    const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
     const [processing, setProcessing] = useState(false);
 
     useEffect(() => {
@@ -24,20 +24,20 @@ export default function Post() {
 
     useEffect(() => {
         if (message.trim() && error === 'Post cannot be empty') {
-            setError('');
+            setError("");
         }
     }, [message, error]);
 
     const submit = async (e) => {
         e.preventDefault();
 
-        if (!message,trim()) {
+        if (!message.trim()) {
             setError('Post cannot be empty');
             return;
         }
 
         setProcessing(true);
-        setError('');
+        setError("");
 
         try {
             const response = await storePost({ message });
@@ -63,20 +63,20 @@ export default function Post() {
                         value={message}
                         placeholder="What is happening?!"
                         className="post-textarea"
-                        onChange={e => setMessage(e.target.value)}
+                        onChange={(e) => setMessage(e.target.value)}
                         disabled={processing}
                     ></textarea>
-                    {error && (
+                    {error && 
                         <div className="post-error">
                             {error}
                         </div>
-                    )}
+                    }
 
                     <div className="post-footer">
                         <button 
                             type="submit"
                             className="post-submit-btn"
-                            disabled={processing || message.trim()}
+                            disabled={processing || !message.trim()}
                         >
                             {processing ? 'Posting...' : 'Post'}
                         </button>
@@ -93,7 +93,6 @@ export default function Post() {
                         <div className="post-empty-state"> No posts share yet.</div>
                     )}
             </div>
-        </div>,
-        <div><h1>dagdag lang</h1></div>
+        </div>
     );
 }
